@@ -5,7 +5,8 @@ node{
        credentialsId: '123456'
   }
   stage('Change version'){
-    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e "s/SNAPSHOT//g");echo $version'
+    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e "s/SNAPSHOT//g pom.xml");echo $version'
+    sh 'version1=$(grep -ri "<version>" pom.xml |head -n 1;echo $version1'
     
    /* withMaven( maven: 'MAVEN3'){
         sh 'mvn versions:set -DremoveSnapshot'
