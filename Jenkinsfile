@@ -5,9 +5,7 @@ node{
        credentialsId: '123456'
   }
   stage('Change version'){
-    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e 's/^[ \t]* 
-                <version>\([^<]*\)<.*$/\1/' | sed 's/[-SNAPSHOT]//g')
-    echo $version'
+    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e 's/^[ \t]* <version>\([^<]*\)<.*$/\1/' | sed 's/[-SNAPSHOT]//g')'
     withMaven( maven: 'MAVEN3'){
         sh 'mvn versions:set -DremoveSnapshot'
         sh 'git config  user.email "ilias.irhboula@gmail.com"'
