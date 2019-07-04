@@ -1,6 +1,8 @@
 node{
   stage('SCM Checkout'){
-    git 'https://github.com/ilias19/jenkins'
+    git url:'https://github.com/ilias19/jenkins',
+       branch:'develop',
+       credentialsId: '123456'
   }
   stage('Change version'){
     def pom = readMavenPom file: 'pom.xml'
