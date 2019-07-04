@@ -11,10 +11,9 @@ node{
         sh 'mvn versions:set -DremoveSnapshot'
         sh 'git config  user.email "ilias.irhboula@gmail.com"'
         sh 'git config  user.name "ilias19"'
-        sh 'git tag -a tagName1 -m "Your tag comment"'
-        sh 'git merge develop'
+        sh 'git tag -a tagName2 -m "Your tag comment"'
         sh 'git commit -am "Merged develop branch to master"'
-        sh "git push origin master"      
+        sh "git push origin develop"      
     }
   }
 }
