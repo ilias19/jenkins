@@ -7,6 +7,7 @@ node{
     echo pom.version
     withMaven( maven: 'MAVEN3'){
        sh 'mvn versions:set -DremoveSnapshot'
+      sh 'mvn scm:checkin -Dincludes=pom.xml -Dmessage="Setting version, preping for release."'
     }
   }
 }
