@@ -1,4 +1,7 @@
 node{
+  tools {
+    maven 'MAVEN3'
+  }
   stage('SCM Checkout'){
     git 'https://github.com/ilias19/jenkins'
   }
