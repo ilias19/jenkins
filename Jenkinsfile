@@ -4,6 +4,6 @@ node{
   }
   stage('Change version'){
     def pom = readMavenPom file: 'pom.xml'
-    echo '${pom.version}
+    echo '${pom.version}'
   }
 }
