@@ -8,8 +8,11 @@ node{
     def pom = readMavenPom file: 'pom.xml'
     echo pom.version
     withMaven( maven: 'MAVEN3'){
-       sh 'mvn versions:set -DremoveSnapshot'
-      sh 'mvn scm:checkin -Dincludes=pom.xml -Dmessage="Setting version, preping for release."'
+        sh 'mvn versions:set -DremoveSnapshot'
+        sh 'git tag -a tagName -m "Your tag comment"'
+        sh 'git merge develop'
+        sh 'git commit -am "Merged develop branch to master'
+        sh "git push origin master"      
     }
   }
 }
