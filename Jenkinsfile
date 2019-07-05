@@ -10,7 +10,7 @@ node{
   }
         
   stage('create and switch to release branch'){
-    def version = sh (script :'$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml)',returnStdout: true).trim()
+    version = sh (script :'$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml)',returnStdout: true).trim()
     //sh 'echo ${version}'
     //sh 'git flow release start ${version}'
   }
