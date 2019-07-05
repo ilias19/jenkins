@@ -14,7 +14,7 @@ node{
     //sh 'echo ${version}'
     //sh 'git flow release start 1.0'
     withMaven( maven: 'MAVEN3'){
-      mvn("jgitflow:release-start")
+      sh 'mvn("jgitflow:release-start")'
     }    
   }
     
