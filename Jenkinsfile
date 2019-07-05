@@ -22,5 +22,4 @@ node{
         sh 'git commit -am "Merged develop branch to master"'
         sh 'git push origin develop'      
     }*/
-  }
 }
