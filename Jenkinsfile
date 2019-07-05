@@ -5,7 +5,7 @@ node{
        credentialsId: '123456'
   }
   stage('Change version'){
-    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e "s/-SNAPSHOT//g" pom.xml)'
+    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -i "s/-SNAPSHOT//g" pom.xml)'
     sh 'cat pom.xml'
     
    /* withMaven( maven: 'MAVEN3'){
