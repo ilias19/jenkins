@@ -5,11 +5,11 @@ node{
        credentialsId: '123456'
   }
   
-  stage('remove SNAPSHOT){
+  stage('remove SNAPSHOT'){
     sh '$(grep -ri "<version>" pom.xml |head -n 1 | sed -i "s/-SNAPSHOT//g" pom.xml)'
   }
         
-  stage('create and switch to release branch){
+  stage('create and switch to release branch'){
     sh 'version = $(grep -oPm1 "(?<=<version>)[^<]+" pom.xml);echo $version'
     //sh 'git flow release start 0.1.0'
   }
