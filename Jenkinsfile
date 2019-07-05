@@ -4,9 +4,15 @@ node{
        branch:'develop',
        credentialsId: '123456'
   }
-  stage('Change version'){
-    sh 'version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -i "s/-SNAPSHOT//g" pom.xml)'
-    sh 'cat pom.xml'
+  
+  stage('remove SNAPSHOT){
+    sh '$(grep -ri "<version>" pom.xml |head -n 1 | sed -i "s/-SNAPSHOT//g" pom.xml)'
+  }
+        
+  stage('create and switch to release branch){
+    sh 'version = $(grep -oPm1 "(?<=<version>)[^<]+" pom.xml);echo $version'
+    //sh 'git flow release start 0.1.0'
+  }
     
    /* withMaven( maven: 'MAVEN3'){
         sh 'mvn versions:set -DremoveSnapshot'
