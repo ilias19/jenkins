@@ -13,7 +13,9 @@ node{
     //def version = sh (script :'$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml)',returnStdout: true).trim()
     //sh 'echo ${version}'
     //sh 'git flow release start 1.0'
-    mvn("jgitflow:release-start")
+    withMaven( maven: 'MAVEN3'){
+      mvn("jgitflow:release-start")
+    }    
   }
     
    /* withMaven( maven: 'MAVEN3'){
