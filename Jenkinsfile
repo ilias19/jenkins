@@ -10,8 +10,7 @@ node{
   }
         
   stage('create and switch to release branch'){
-    sh 'version = $(grep -oPm1 "(?<=<version>)[^<]+" pom.xml);echo $version'
-    //sh 'git flow release start 0.1.0'
+    sh 'version = $(grep -oPm1 "(?<=<version>)[^<]+" pom.xml);git flow release start $version'
   }
     
    /* withMaven( maven: 'MAVEN3'){
